@@ -8,19 +8,13 @@
 
 find [path] [option] [commond]
 
-##### 复制
+**复制** cp
 
-cp
+**重命名** mv
 
-##### 重命名
+**批量重命名** rename
 
-mv
-
-批量重命名：rename
-
-##### 移动
-
-mv
+**移动** mv
 
 ##### 删除
 
