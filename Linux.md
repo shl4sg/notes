@@ -2,7 +2,23 @@
 
 虚拟文件系统(VFS) 位于文件系统的最上层，管理各种逻辑文件系统，并可以屏蔽各种逻辑文件系统之间的差异，提供统一文件和设备的访问接口。
 
+#### 设置自启动
+
+“/etc/rc.local”，把启动程序的shell命令输入进去即可
+
+#### 设置定时任务
+
+cron，设置cron_tab
+
+
+
 #### Linux命令
+
+linux查看tcp的状态命令：
+1) netstat -nat 查看TCP各个状态的数量
+2)lsof -i:port 可以检测到打开套接字的状况
+3) sar -n SOCK 查看tcp创建的连接数
+4) tcpdump -iany tcp port 9000 对tcp端口为9000的进行抓包
 
 ##### 查找文件命令
 
