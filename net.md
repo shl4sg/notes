@@ -163,10 +163,22 @@ tcp是流模式的协议，其传输面向字节流，需要上层协议来划�
 
 #### time_wait
 
-当TCP执行主动关闭，并发出最后一个ACK，该链接必须在TIME_WAIT状态下停留的时间为2MSL。这样可以（1）保证TCP的可靠的全双工连接的终止。（2）等待旧的数据包在网络因过期而消失
+当TCP执行主动关闭，并发出最后一个ACK，该链接必须在TIME_WAIT状态下停留的时间为2MSL。这样可以（1）保证TCP的可靠的全双工连接的终止。（2）等待旧的数据包在网络因过期而消失。
 
 #### tcpdump
 
 #### session和cookie
 
-session
+##### cookie
+
+HTTP协议本身是无状态的，即服务器无法判断用户身份。Cookie实际上是一小段的k-v格式的文本信息。客户端向服务器发起请求后，如果服务器需要记录该用户状态，就向客户端浏览器发送一个Cookie，客户端浏览器会把Cookie保存起来。当浏览器再请求该网站时，浏览器把请求内容和该Cookie一同提交给服务器。服务器检查该Cookie，以此来识别用户状态。Cookie信息存放在HTTP请求头里。
+
+##### session
+
+session类似cookie，客户端浏览器访问服务器的时候，服务器把客户端信息以某种形式记录在服务器上，这就是session。客户端浏览器再次访问时只需要从该session中查找该客户的状态就可以了。
+
+##### session与cookie
+
+session需要使用cookie作为识别标志。服务器向客户端浏览器发送一个名为SESSIONID的cookie，它的值为该Session的id，Session依据该cookie来识别是否为同一用户。对于不支持cookie的手机浏览器，则通过URL地址重写。URL地址重写是将该用户session的id信息重写到URL地址中，服务器能够解析重写后的URL获取session的id。
+
+Restful
